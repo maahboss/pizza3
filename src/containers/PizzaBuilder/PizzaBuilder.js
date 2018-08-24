@@ -22,8 +22,8 @@ class PizzaBuilder extends Component {
 
     state = {
         ingredents :{
-            cheese:5,
-            mash:2,
+            cheese:0,
+            mash:0,
             tom:0,
             bo:0,
             olive:0,
@@ -34,17 +34,21 @@ class PizzaBuilder extends Component {
     }
 
     addIngredentHandler = (type) => {
-        const oldCount = this.state.ingredents[type];
-        const updatedCount = oldCount+1;
-        const updateIgredents = {
-            ...this.state.ingredents
-        };
-        updateIgredents[type] = updatedCount;
-        const priceAddition = INGREDENT_PRICES[type];
-        const oldPrice = this.state.totalPrice;
-        const newPrice = oldPrice + priceAddition;
-        this.setState({totalPrice: newPrice , ingredents:updateIgredents});
-    }
+        if(this.state.ingredents[type] < 4) {
+
+            const oldCount = this.state.ingredents[type];
+            const updatedCount = oldCount+1;
+            const updateIgredents = {
+                ...this.state.ingredents
+            };
+            updateIgredents[type] = updatedCount;
+            const priceAddition = INGREDENT_PRICES[type];
+            const oldPrice = this.state.totalPrice;
+            const newPrice = oldPrice + priceAddition;
+            this.setState({totalPrice: newPrice , ingredents:updateIgredents});
+         
+        }else {window.confirm('It is Maximum level of this Ingredient')}
+    }    
 
     removeIngredentHandler =(type) => {
 

@@ -4,6 +4,8 @@ import classes from './PizzaIngredent.css';
 
 
 class PizzaIngredent extends Component {
+     
+
     render () {
         let ingredent = null;
         
@@ -14,50 +16,309 @@ class PizzaIngredent extends Component {
             
             
                case ('cheese') :
-                ingredent = (
-                    <div className={classes.cheese}></div>   
-                       
-                );
-                
-                   console.log(this.props.indx);
+               
                   
-                break;
+                    ingredent = (
+                            <div className={classes.cheese}></div>   
+                            
+                        );
+                        
+                        //  console.log(this.props.indx);
+                        
+                        break;
     
                 case ('mash') :
-                    ingredent = (
-                            <div className={classes.mash1}></div>           
-                    );
-                    console.log(this.props.indx);
+
+                        switch (this.props.indx) {
+                            case(1) : 
+                                
+                                ingredent = (
+                                    <div className={classes.mash1}></div>           
+                                );
+                                
+                                
+                            break;
+
+                            case(2) : 
+                                ingredent = (
+                                    <div>
+                                        <div className={classes.mash1} ></div>
+                                        <div className={classes.mash2}></div> 
+                                    </div>       
+                                );
+
+                            break;
+
+                            case(3) : 
+                                ingredent = (
+                                    <div>
+                                        <div className={classes.mash1} ></div>
+                                        <div className={classes.mash2}></div> 
+                                        <div className={classes.mash3}></div> 
+                                    </div>       
+                                );
+
+                            break;
+
+                            case(4) : 
+                                ingredent = (
+                                    <div>
+                                        <div className={classes.mash1} ></div>
+                                        <div className={classes.mash2}></div>
+                                        <div className={classes.mash3}></div> 
+                                        <div className={classes.mash4}></div> 
+                                    </div>       
+                                );
+
+                            break;
+
+                            default:
+                            ingredent = null;
+                    }
+                    
                 break;
     
                 case ('tom') :
-                    ingredent = (
-                            <div className={classes.tom1}></div>
-                    );
+
+                            switch (this.props.indx) {
+                                case(1) : 
+                                    
+                                    ingredent = (
+                                        <div className={classes.tom1}></div>           
+                                    );
+                                    
+                                    
+                                break;
+
+                                case(2) : 
+                                    ingredent = (
+                                        <div>
+                                            <div className={classes.tom1} ></div>
+                                            <div className={classes.tom2}></div> 
+                                        </div>       
+                                    );
+
+                                break;
+
+                                case(3) : 
+                                    ingredent = (
+                                        <div>
+                                            <div className={classes.tom1} ></div>
+                                            <div className={classes.tom2}></div> 
+                                            <div className={classes.tom3}></div> 
+                                        </div>       
+                                    );
+
+                                break;
+
+                                case(4) : 
+                                    ingredent = (
+                                        <div>
+                                            <div className={classes.tom1} ></div>
+                                            <div className={classes.tom2}></div> 
+                                            <div className={classes.tom3}></div> 
+                                        </div>       
+                                    );
+
+                                break;
+
+                                
+
+                                default:
+                                ingredent = null;
+                        }
+                    
                 break;
 
                 case ('bo') :
-                    ingredent = (
-                            <div className={classes.bo1}></div>
-                    );
+
+                        switch(this.props.indx) {
+
+                            case(1) : 
+                                ingredent = (
+                                    <div className={classes.bo1}></div>
+                                );
+
+                            break;
+
+                            case(2) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.bo1}></div>
+                                    <div className={classes.bo2}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            case(3) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.bo1}></div>
+                                    <div className={classes.bo2}></div>
+                                    <div className={classes.bo3}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            case(4) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.bo1}></div>
+                                    <div className={classes.bo2}></div>
+                                    <div className={classes.bo3}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            default:
+                            ingredent = null;
+                        }
+                        
+                    
                 break;
 
                 case ('olive') :
-                    ingredent = (
-                            <div className={classes.olive}></div>
-                    );
+                        switch(this.props.indx) {
+
+                            case(1) : 
+                                ingredent = (
+                                    <div className={classes.olive}></div>
+                                );
+
+                            break;
+
+                            case(2) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.olive}></div>
+                                    <div className={classes.olive1}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            case(3) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.olive}></div>
+                                    <div className={classes.olive1}></div>
+                                    <div className={classes.olive2}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            case(4) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.olive}></div>
+                                    <div className={classes.olive1}></div>
+                                    <div className={classes.olive2}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            default:
+                            ingredent = null;
+                        }
                 break;
 
                 case ('veg') :
-                    ingredent = (
-                            <div className={classes.veg}></div>
-                    );
+                            switch(this.props.indx) {
+
+                                case(1) : 
+                                    ingredent = (
+                                        <div className={classes.veg}></div>
+                                    );
+
+                                break;
+
+                                case(2) : 
+                                    ingredent = (
+                                    <div>
+                                        <div className={classes.veg}></div>
+                                        <div className={classes.veg1}></div>
+                                    </div>
+                                    );
+
+                                break;
+
+                                case(3) : 
+                                    ingredent = (
+                                    <div>
+                                        <div className={classes.veg}></div>
+                                        <div className={classes.veg1}></div>
+                                        <div className={classes.veg2}></div>
+                                    </div>
+                                    );
+
+                                break;
+
+                                case(4) : 
+                                    ingredent = (
+                                    <div>
+                                        <div className={classes.veg}></div>
+                                        <div className={classes.veg1}></div>
+                                        <div className={classes.veg2}></div>
+                                    </div>
+                                    );
+
+                                break;
+
+                                default:
+                                ingredent = null;
+                            }
                 break;
 
                 case ('shr') :
-                    ingredent = ( 
-                            <div className={classes.shr}></div>
-                    );
+                        switch(this.props.indx) {
+
+                            case(1) : 
+                                ingredent = (
+                                    <div className={classes.shr}></div>
+                                );
+
+                            break;
+
+                            case(2) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.shr}></div>
+                                    <div className={classes.shr1}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            case(3) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.shr}></div>
+                                    <div className={classes.shr1}></div>
+                                    <div className={classes.shr2}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            case(4) : 
+                                ingredent = (
+                                <div>
+                                    <div className={classes.shr}></div>
+                                    <div className={classes.shr1}></div>
+                                    <div className={classes.shr2}></div>
+                                </div>
+                                );
+
+                            break;
+
+                            default:
+                            ingredent = null;
+                        }
                 break;
     
                 default:

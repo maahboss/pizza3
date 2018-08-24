@@ -19,15 +19,15 @@ class PizzaIngredent extends Component {
                        
                 );
                 
-                
-                
-                
+                   console.log(this.props.indx);
+                  
                 break;
     
                 case ('mash') :
                     ingredent = (
                             <div className={classes.mash1}></div>           
                     );
+                    console.log(this.props.indx);
                 break;
     
                 case ('tom') :

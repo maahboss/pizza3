@@ -1,9 +1,8 @@
 .BuildControl {
     display: flex;
     justify-content: space-between;
- 
+    align-items: center;
     margin: 5px 0;
-    width:100%;
 }
 
 .BuildControl button {
@@ -36,17 +35,12 @@
     width: 80px;
 }
 
-.BuildControl .regular {  
+.BuildControl .Less {  
     background-color: #D39952;
     color: white;
 }
 
-.BuildControl .extra {  
-    background-color: rgb(192, 131, 56);
-    color: white;
-}
-
-.BuildControl .superextra {
+.BuildControl .More {
     background-color: #8F5E1E;
     color: white;
 }

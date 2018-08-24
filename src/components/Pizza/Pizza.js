@@ -10,7 +10,7 @@ const pizza = (props) => {
         .map(igKey => {
             return [...Array(props.ingredents[igKey])].map((_, i) => {
             return (  
-            <PizzaIngredent key={igKey + i} type={igKey} /> );
+            <PizzaIngredent key={igKey + i} type={igKey} indx={props.ingredents[igKey]} /> );
                       
             });
         })

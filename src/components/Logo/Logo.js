@@ -1,5 +1,5 @@
 import React from 'react';
-import pizzaLogo from '../../assets/Images/logo.png';
+import pizzaLogo from '../../assets/Images/Logo.png';
 import classes from './Logo.css';
 
 const logo = (props) => (

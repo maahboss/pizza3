@@ -30,8 +30,22 @@ class PizzaBuilder extends Component {
             veg:0,
             shr:0
         },
-        totalPrice:4
+        totalPrice:4,
+        purchasable:false
     }
+
+    updatePurchasable (ingredents) {
+        
+        const sum = Object.keys(ingredents)
+                      .map(igkey => {
+                          return ingredents[igkey];
+                      })
+                      .reduce((sum,el) => {
+                          return sum + el;
+                      },0);
+        
+        this.setState({purchasable: sum >0 });
+    } 
 
     addIngredentHandler = (type) => {
         if(this.state.ingredents[type] < 4) {
@@ -46,22 +60,47 @@ class PizzaBuilder extends Component {
             const oldPrice = this.state.totalPrice;
             const newPrice = oldPrice + priceAddition;
             this.setState({totalPrice: newPrice , ingredents:updateIgredents});
+            this.updatePurchasable(updateIgredents);
          
         }else {window.confirm('It is Maximum level of this Ingredient')}
     }    
 
     removeIngredentHandler =(type) => {
+          if(this.state.ingredents[type] >= 1)  {
+            const oldCount = this.state.ingredents[type];
+            const updatedCount = oldCount - 1;
+            const updateIgredents = {
+                ...this.state.ingredents
+            };
+            updateIgredents[type] = updatedCount;
+            const priceDeduction = INGREDENT_PRICES[type];
+            const oldPrice = this.state.totalPrice;
+            const newPrice = oldPrice - priceDeduction;
+            this.setState({totalPrice: newPrice , ingredents:updateIgredents});
+            this.updatePurchasable(updateIgredents);
 
+        }else{window.confirm('It is Minimum level of this Ingredient')}
     }
 
 
     render() {
+        const disabledInfo ={
+            ...this.state.ingredents
+        };
+        for (let key in disabledInfo) {
+            disabledInfo[key] = disabledInfo[key] <= 0
+        }
+        // {cheese:true,veg:false}
         return (
             <Fragment>
                 <Pizza ingredents ={this.state.ingredents} />
                 <div className={classes.Control}>
                    <BuilControls  
-                       ingredentAdd = {this.addIngredentHandler}  />
+                       ingredentAdd = {this.addIngredentHandler}
+                       ingredentRemove = {this.removeIngredentHandler}
+                       disabled = {disabledInfo}
+                       purchasable={this.state.purchasable}
+                       price={this.state.totalPrice}  />
                 </div>
                 
             </Fragment>

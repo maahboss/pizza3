@@ -3,6 +3,10 @@ import React,{Component, Fragment} from 'react';
 import classes from './PizzaBuilder.css';
 import Pizza from '../../components/Pizza/Pizza';
 import BuilControls from '../../components/Pizza/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Pizza/OrderSummary/OrderSummary';
+
+
 
 const INGREDENT_PRICES = {
     cheese: 5.5,
@@ -31,7 +35,8 @@ class PizzaBuilder extends Component {
             shr:0
         },
         totalPrice:4,
-        purchasable:false
+        purchasable:false,
+        purchasing:false
     }
 
     updatePurchasable (ingredents) {
@@ -82,6 +87,18 @@ class PizzaBuilder extends Component {
         }else{window.confirm('It is Minimum level of this Ingredient')}
     }
 
+    purchaseHandler =() => {
+        this.setState({purchasing:true});
+    }
+
+    purchaseCancelHandler = () => {
+        this.setState({purchasing:false});
+    }
+
+    purchaseContinueHandler =() => {
+        alert('You Continue!!');
+    }
+
 
     render() {
         const disabledInfo ={
@@ -93,6 +110,13 @@ class PizzaBuilder extends Component {
         // {cheese:true,veg:false}
         return (
             <Fragment>
+                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
+                    <OrderSummary 
+                        ingredents={this.state.ingredents}
+                        price={this.state.totalPrice.toFixed(2)}
+                        purchaseCanceled={this.purchaseCancelHandler}
+                        purchaseContinued={this.purchaseContinueHandler} />
+                </Modal>
                 <Pizza ingredents ={this.state.ingredents} />
                 <div className={classes.Control}>
                    <BuilControls  
@@ -100,6 +124,7 @@ class PizzaBuilder extends Component {
                        ingredentRemove = {this.removeIngredentHandler}
                        disabled = {disabledInfo}
                        purchasable={this.state.purchasable}
+                       ordered ={this.purchaseHandler}
                        price={this.state.totalPrice}  />
                 </div>
                 

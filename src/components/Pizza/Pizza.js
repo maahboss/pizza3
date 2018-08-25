@@ -24,12 +24,12 @@ const pizza = (props) => {
         }
         
         
-   return (
+   return ( 
     <div className={classes.Pizza}>
       <div className={classes.box}>
           <div className={classes.breadBottom}>
 
-             {trasformedIngredents}
+             {trasformedIngredents} 
 
 
 

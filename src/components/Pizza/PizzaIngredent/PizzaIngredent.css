@@ -4,7 +4,7 @@
     height:800px
 }
 
-.breadBottom {
+.breadBottom { 
     height:80%;
     width:60%;
     background:linear-gradient(#bc581e,#e27b36);
@@ -188,7 +188,7 @@
         
         }
 
-        .veg {
+     .veg {
             position: absolute;
             width: 2%;
             height: 15%;
@@ -224,7 +224,7 @@
             box-shadow: inset -2px -3px #c9c9c9;
         }
 
-        .shr {
+    .shr {
             position: absolute;
             left:25%;
             top:65%;
@@ -256,3 +256,52 @@
                     box-shadow: 30px 15px 0 0 pink;
                     transform: rotate(-60deg);
                     }
+
+
+
+                    /* switch (this.props.indx) {
+                        case(1) : 
+                            
+                            ingredent = (
+                                <div className={classes.mash1}></div>           
+                            );
+                            
+                            
+                        break;
+
+                        case(2) : 
+                            ingredent = (
+                                <div>
+                                    <div className={classes.mash1} ></div>
+                                    <div className={classes.mash2}></div> 
+                                </div>       
+                            );
+
+                        break;
+
+                        case(3) : 
+                            ingredent = (
+                                <div>
+                                    <div className={classes.mash1} ></div>
+                                    <div className={classes.mash2}></div> 
+                                    <div className={classes.mash3}></div> 
+                                </div>       
+                            );
+
+                        break;
+
+                        case(4) : 
+                            ingredent = (
+                                <div>
+                                    <div className={classes.mash1} ></div>
+                                    <div className={classes.mash2}></div>
+                                    <div className={classes.mash3}></div> 
+                                    <div className={classes.mash4}></div> 
+                                </div>       
+                            );
+
+                        break;
+
+                        default:
+                        ingredent = null;
+                } */

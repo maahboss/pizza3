@@ -53,7 +53,7 @@ class PizzaBuilder extends Component {
     } 
 
     addIngredentHandler = (type) => {
-        if(this.state.ingredents[type] < 4) {
+       
 
             const oldCount = this.state.ingredents[type];
             const updatedCount = oldCount+1;
@@ -67,7 +67,7 @@ class PizzaBuilder extends Component {
             this.setState({totalPrice: newPrice , ingredents:updateIgredents});
             this.updatePurchasable(updateIgredents);
          
-        }else {window.confirm('It is Maximum level of this Ingredient')}
+        
     }    
 
     removeIngredentHandler =(type) => {
@@ -128,7 +128,7 @@ class PizzaBuilder extends Component {
                        price={this.state.totalPrice}  />
                 </div>
                 
-            </Fragment>
+            </Fragment> 
         );
     }
 }

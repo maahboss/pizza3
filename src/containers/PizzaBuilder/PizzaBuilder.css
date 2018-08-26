@@ -1,16 +1,16 @@
 .Control {
     position: absolute;
-    top:600px;
+    top:330px;
     margin: auto;
-    left:200px;
+    left:80px;
 } 
 
 
 @media (min-width: 500px) {
     .Control {
         position: absolute;
-        top:40px;
+        top:15px;
         margin: auto;
-        left:700px;
+        left:500px;
     } 
 }

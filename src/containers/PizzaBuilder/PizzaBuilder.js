@@ -128,7 +128,7 @@ class PizzaBuilder extends Component {
                        price={this.state.totalPrice}  />
                 </div>
                 
-            </Fragment> 
+            </Fragment>  
         );
     }
 }

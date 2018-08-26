@@ -3,4 +3,14 @@
     top:600px;
     margin: auto;
     left:200px;
+} 
+
+
+@media (min-width: 500px) {
+    .Control {
+        position: absolute;
+        top:40px;
+        margin: auto;
+        left:700px;
+    } 
 }

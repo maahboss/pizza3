@@ -5,6 +5,8 @@ import Pizza from '../../components/Pizza/Pizza';
 import BuilControls from '../../components/Pizza/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Pizza/OrderSummary/OrderSummary';
+import axios from '../../axios-orders';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 
 
@@ -36,7 +38,8 @@ class PizzaBuilder extends Component {
         },
         totalPrice:4,
         purchasable:false,
-        purchasing:false
+        purchasing:false,
+        loading:false
     }
 
     updatePurchasable (ingredents) {
@@ -96,7 +99,29 @@ class PizzaBuilder extends Component {
     }
 
     purchaseContinueHandler =() => {
-        alert('You Continue!!');
+       // alert('You Continue!!');
+       this.setState({loading:true});
+       const order = {
+           ingredents:this.state.ingredents,
+           price:this.state.totalPrice,
+           customer:{
+               name:'Moh Ham',
+               address:{
+                   street:'Yk 205',
+                   zipCode:'652245',
+                   country:'USA'
+               },
+               email:'M@m.com'
+           },
+           deliveryMethod:'fastest'
+       }
+       axios.post('/orders.json',order)
+           .then(response => {
+               this.setState({loading:false,purchasing:false});
+           })
+           .catch(error => {
+                this.setState({loading:false,purchasing:false});
+            });
     }
 
 
@@ -107,15 +132,20 @@ class PizzaBuilder extends Component {
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
-        // {cheese:true,veg:false}
+        
+        let orderSummary = <OrderSummary 
+                                    ingredents={this.state.ingredents}
+                                    price={this.state.totalPrice.toFixed(2)}
+                                    purchaseCanceled={this.purchaseCancelHandler}
+                                    purchaseContinued={this.purchaseContinueHandler} />
+        if(this.state.loading) {
+            orderSummary = <Spinner />;
+
+        }
         return (
             <Fragment>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    <OrderSummary 
-                        ingredents={this.state.ingredents}
-                        price={this.state.totalPrice.toFixed(2)}
-                        purchaseCanceled={this.purchaseCancelHandler}
-                        purchaseContinued={this.purchaseContinueHandler} />
+                    {orderSummary}
                 </Modal>
                 <Pizza ingredents ={this.state.ingredents} />
                 <div className={classes.Control}>
